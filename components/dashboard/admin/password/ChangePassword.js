@@ -95,7 +95,7 @@ const PasswordChangeForm = () => {
     }
 
     try {
-      const response = await fetch(`${process.env.API}/agent/change-password`, {
+      const response = await fetch(`${process.env.API}/admin/change-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -243,9 +243,10 @@ const [isCollapseReview , setIsCollapseReview] = React.useState(false);
             background: `black`,
           }}
         >
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          {["profile", "change-password"].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
+               onClick={() => handleNavigation(text)}
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? "initial" : "center",

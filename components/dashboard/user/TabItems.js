@@ -4,28 +4,25 @@ import Link from "next/link";
 import { Tab, useTheme } from "@mui/material";
 import {
   Dashboard as DashboardIcon,
-  AccountCircle as ProfileIcon,
+ 
   Lock as PasswordIcon,
   Email as MessagesIcon,
-  Fastfood as OrdersIcon,
-  EventAvailable as ReservationsIcon,
-  Star as ReviewsIcon,
-  Favorite as WishlistIcon,
-  LocationOn as AddressIcon,
+
+ 
   ExitToApp as LogoutIcon,
 } from "@mui/icons-material";
 import { TabIconContainer } from "./styles";
-import AddIcon from '@mui/icons-material/Add';
+
 
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
 
-import ListAltIcon from '@mui/icons-material/ListAlt';
+
 export const tabItems = [
   {
     icon: <DashboardIcon />,
     label: "Dashboard",
     value: 0,
-    path: "/dashboard/agent",
+    path: "/dashboard/user",
   },
 
 
@@ -34,33 +31,17 @@ export const tabItems = [
     icon: <AssignmentIndOutlinedIcon/>,
     label: "Profile",
     value: 1,
-    path: "/dashboard/agent/profile",
+    path: "/dashboard/user/profile",
   },
 
 
-   
-  {
-    icon: <AddIcon  />,
-    label: "Create Listing",
-    value: 2,
-    path: "/dashboard/agent/listing/create",
-  },
-
-   
-  {
-    icon: <ListAltIcon />,
-    label: "My Listing",
-    value: 3,
-    path: "/dashboard/agent/listing/list",
-  },
-
-
+  
 
   {
     icon: <PasswordIcon />,
     label: "Password",
     value: 4,
-    path: "/dashboard/agent/password",
+    path: "/dashboard/user/password",
   },
 
 
@@ -68,13 +49,7 @@ export const tabItems = [
     icon: <MessagesIcon />,
     label: "Messages",
     value: 5,
-    path: "/dashboard/agent/messages",
-  },
-  {
-    icon: <OrdersIcon />,
-    label: "My Orders",
-    value: 6,
-    path: "/dashboard/agent/orders",
+    path: "/dashboard/user/messages",
   },
  
 
@@ -82,7 +57,7 @@ export const tabItems = [
     icon: <LogoutIcon />,
     label: "Log Out",
     value: 11,
-    path: "/dashboard/agent/logout",
+    path: "/dashboard/user/logout",
   },
 ];
 

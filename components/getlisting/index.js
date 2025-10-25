@@ -117,8 +117,10 @@ export default function ListingDetailPage({ data }) {
                   description: data?.description,
                   file: data?.file,
                   title: data?.title,
+                  is_featured:data?.is_featured
                 }}
                 fileUrl={data.file}
+                 listingId={data?._id} 
               />
 
               {/* Image Gallery with Title */}

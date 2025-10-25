@@ -76,7 +76,7 @@ const ProfilePage = () => {
 
       console.log("updatedData", updatedData);
 
-      const response = await fetch(`${process.env.API}/agent/profile/update`, {
+      const response = await fetch(`${process.env.API}/user/profile/update`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedData),
