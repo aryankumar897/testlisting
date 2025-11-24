@@ -3,7 +3,7 @@ export const styles = {
   container: {
     margin: '0 auto',
     width: '80%',
-    maxWidth: '1070px',
+    maxWidth: '1270px',
   },
   leftSideContainer: {
     backgroundColor: 'white', 

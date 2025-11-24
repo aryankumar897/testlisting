@@ -143,10 +143,6 @@ export const deleteCategory = createAsyncThunk(
   }
 );
 
-
-
-
-
 export const fetchCategoryListingsBySlug = createAsyncThunk(
   "categories/fetchCategoryListingsBySlug",
   async (slug) => {
@@ -167,9 +163,6 @@ export const fetchCategoryListingsBySlug = createAsyncThunk(
     }
   }
 );
-
-
-
 
 const categorySlice = createSlice({
   name: "categories",

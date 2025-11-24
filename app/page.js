@@ -13,7 +13,7 @@ import Test from "@/components/testimonials/Test";
 import Blog from "@/components/blog/Blog";
 
 import  CategoryCarousel from "@/components/categorycarousel/CategoryCarousel"
-
+import FeaturedListings from "@/components/featuredlistings/Featuredlistings"
 export default function Homes() {
   return (
     <main>
@@ -26,6 +26,7 @@ export default function Homes() {
 
       <FeaturedListing />
       <Pricing />
+      <FeaturedListings/>
       <Test />
       <Blog />
     </main>

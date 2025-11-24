@@ -51,13 +51,10 @@ const MenuWithCategories = () => {
             <Button  utton sx={{ color: "black" }}>Home</Button>
           </Link>
 
-          <Link href="/about" passHref>
-            <Button sx={{ color: "black" }}>Blog</Button>
+          <Link href="/contact-us" passHref>
+            <Button sx={{ color: "black" }}>Contact</Button>
           </Link>
-          <Link href="/contact" passHref>
-            <Button sx={{ color: "black" }}>Pages</Button>
-          </Link>
-          <Link href="/about" passHref>
+          <Link href="/about-us" passHref>
             <Button sx={{ color: "black" }}>About</Button>
           </Link>
              <Link href="/package" passHref>

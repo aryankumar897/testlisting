@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import dbConnect from "@/utils/dbConnect";
 import Category from "@/model/category";
-import slugify from "slugify";
+
 
 // GET: Fetch all categories
 export async function GET() {

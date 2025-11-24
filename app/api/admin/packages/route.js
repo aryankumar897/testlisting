@@ -14,11 +14,6 @@ export async function GET() {
   }
 }
 
-
-
-
-
-
 // POST: Create a new package
 export async function POST(req) {
   await dbConnect();
@@ -43,10 +38,16 @@ export async function POST(req) {
 
     // Basic validation
     if (!name) {
-      return NextResponse.json({ err: "Package name is required" }, { status: 400 });
+      return NextResponse.json(
+        { err: "Package name is required" },
+        { status: 400 }
+      );
     }
     if (!["free", "paid"].includes(type)) {
-      return NextResponse.json({ err: "Invalid package type" }, { status: 400 });
+      return NextResponse.json(
+        { err: "Invalid package type" },
+        { status: 400 }
+      );
     }
 
     // Ensure numeric fields are numbers
@@ -56,7 +57,8 @@ export async function POST(req) {
     const parsedNumOfPhotos = parseInt(num_of_photos, 10) || 0;
     const parsedNumOfVideo = parseInt(num_of_video, 10) || 0;
     const parsedNumOfAmenities = parseInt(num_of_amenities, 10) || 0;
-    const parsedNumOfFeaturedListing = parseInt(num_of_featured_listing, 10) || 0;
+    const parsedNumOfFeaturedListing =
+      parseInt(num_of_featured_listing, 10) || 0;
 
     const pkg = await Package.create({
       type,

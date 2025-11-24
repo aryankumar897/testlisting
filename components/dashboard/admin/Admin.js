@@ -116,6 +116,8 @@ const [isCollapseCalim, setIsCollapseCalim] = React.useState(false);
 const [isCollapseReview , setIsCollapseReview] = React.useState(false);
 
 
+const [isCollapseMessage , setIsCollapseMessage] = React.useState(false);
+
 
   const router = useRouter();
 
@@ -168,6 +170,13 @@ const [isCollapseReview , setIsCollapseReview] = React.useState(false);
 
    const handleCollapseReview  = () => {
     setIsCollapseReview(!isCollapseReview);
+  };
+
+
+
+  
+   const handleCollapseMessage  = () => {
+    setIsCollapseMessage(!isCollapseMessage);
   };
   
   const handleCollapseProduct = () => {
@@ -678,6 +687,80 @@ const [isCollapseReview , setIsCollapseReview] = React.useState(false);
           </Collapse>
         </List>
         <Divider />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {/* Message*/}
+
+        <List
+          sx={{
+            color: "white",
+
+            background: `black`,
+          }}
+        >
+          <ListItem
+            disablePadding
+            sx={{ display: "block" }}
+            onClick={handleCollapseMessage}
+          >
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  color: "white",
+                  minWidth: 0,
+                  mr: open ? 3 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                <MailIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Manage  Message"
+                sx={{ opacity: open ? 1 : 0 }}
+              />
+              {isCollapseMessage  ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+            </ListItemButton>
+          </ListItem>
+          <Collapse in={isCollapseMessage} timeout="auto" unmountOnExit>
+            {["messages"].map((text, index) => (
+              <ListItem key={text} disablePadding sx={{ display: "block" }}>
+                <ListItemButton
+                  onClick={() => handleNavigation(text)}
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </Collapse>
+        </List>
+        <Divider />
+
+
 
 
 

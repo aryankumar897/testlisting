@@ -239,11 +239,9 @@ export default function ListingDetailPage({ data }) {
 
             {/* Quick Actions with Title */}
             <Grid item xs={12}>
-              <ActionButton
-                title="send message"
-                buttonText="send message"
-                onClick={() => console.log("Send message clicked")}
-              />
+             <ActionButton
+                data={data}
+              /> 
             </Grid>
 
             <Grid item xs={12}>

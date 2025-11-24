@@ -64,6 +64,8 @@ export default function ListingForm() {
   // store lists
   const categories = useSelector((state) => state.categories.list || []);
   const locations = useSelector((state) => state.locations.list || []);
+  
+  
   const amenitiesOptions = useSelector((state) => state.amenities.list || []);
   const { loading, error } = useSelector((state) => state.listings || {});
 

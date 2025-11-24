@@ -82,130 +82,130 @@ const CategoryTable = ({ categories, onEdit }) => {
     page * rowsPerPage
   );
 
-  if (isSmallScreen) {
-    return (
-      <Box sx={tableContainerStyles}>
-        {paginatedCategories.map((category) => (
-          <Box key={category._id} sx={mobileRowStyles}>
-            <Box sx={mobileCellStyles}>
-              <Typography sx={mobileLabelStyles}>Name</Typography>
-              <Typography>{category.name}</Typography>
-            </Box>
-            <Box sx={mobileCellStyles}>
-              <Typography sx={mobileLabelStyles}>Slug</Typography>
-              <Typography variant="body2" color="textSecondary">
-                {category.slug}
-              </Typography>
-            </Box>
-            <Box sx={mobileCellStyles}>
-              <Typography sx={mobileLabelStyles}>Images</Typography>
-              <Box sx={{ display: "flex", gap: 1, mt: 1 }}>
-                {category.image_icon && (
-                  <Avatar
-                    src={category.image_icon}
-                    sx={{ width: 40, height: 40, cursor: "pointer" }}
-                    onClick={() => handleImagePreview(category.image_icon)}
-                  />
-                )}
-                {category.background_image && (
-                  <Avatar
-                    src={category.background_image}
-                    sx={{ width: 40, height: 40, cursor: "pointer" }}
-                    onClick={() => handleImagePreview(category.background_image)}
-                  />
-                )}
-                {!category.image_icon && !category.background_image && (
-                  <ImageIcon color="disabled" />
-                )}
-              </Box>
-            </Box>
-            <Box sx={mobileCellStyles}>
-              <Typography sx={mobileLabelStyles}>Status</Typography>
-              <Box sx={statusStyles(category.status)}>
-                {category.status ? "Active" : "Inactive"}
-                {category.show_at_home && (
-                  <Chip
-                    icon={<HomeIcon fontSize="small" />}
-                    label="Home"
-                    size="small"
-                    sx={{ ml: 1 }}
-                  />
-                )}
-              </Box>
-            </Box>
-            <Box
-              sx={{ ...mobileCellStyles, justifyContent: "flex-end", gap: 1 }}
-            >
-              <IconButton
-                size="small"
-                onClick={() => onEdit(category._id)}
-                sx={actionButtonStyles}
-                color="secondary"
-              >
-                <EditIcon fontSize="small" />
-              </IconButton>
-              <IconButton
-                size="small"
-                onClick={() => handleDeleteClick(category._id)}
-                sx={{ ...actionButtonStyles, color: "error.main" }}
-              >
-                <DeleteIcon fontSize="small" />
-              </IconButton>
-            </Box>
-          </Box>
-        ))}
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-          <Pagination
-            count={Math.ceil(categories.length / rowsPerPage)}
-            page={page}
-            onChange={handleChangePage}
-            sx={paginationStyles}
-          />
-        </Box>
+  // if (isSmallScreen) {
+  //   return (
+  //     <Box sx={tableContainerStyles}>
+  //       {paginatedCategories.map((category) => (
+  //         <Box key={category._id} sx={mobileRowStyles}>
+  //           <Box sx={mobileCellStyles}>
+  //             <Typography sx={mobileLabelStyles}>Name</Typography>
+  //             <Typography>{category.name}</Typography>
+  //           </Box>
+  //           <Box sx={mobileCellStyles}>
+  //             <Typography sx={mobileLabelStyles}>Slug</Typography>
+  //             <Typography variant="body2" color="textSecondary">
+  //               {category.slug}
+  //             </Typography>
+  //           </Box>
+  //           <Box sx={mobileCellStyles}>
+  //             <Typography sx={mobileLabelStyles}>Images</Typography>
+  //             <Box sx={{ display: "flex", gap: 1, mt: 1 }}>
+  //               {category.image_icon && (
+  //                 <Avatar
+  //                   src={category.image_icon}
+  //                   sx={{ width: 40, height: 40, cursor: "pointer" }}
+  //                   onClick={() => handleImagePreview(category.image_icon)}
+  //                 />
+  //               )}
+  //               {category.background_image && (
+  //                 <Avatar
+  //                   src={category.background_image}
+  //                   sx={{ width: 40, height: 40, cursor: "pointer" }}
+  //                   onClick={() => handleImagePreview(category.background_image)}
+  //                 />
+  //               )}
+  //               {!category.image_icon && !category.background_image && (
+  //                 <ImageIcon color="disabled" />
+  //               )}
+  //             </Box>
+  //           </Box>
+  //           <Box sx={mobileCellStyles}>
+  //             <Typography sx={mobileLabelStyles}>Status</Typography>
+  //             <Box sx={statusStyles(category.status)}>
+  //               {category.status ? "Active" : "Inactive"}
+  //               {category.show_at_home && (
+  //                 <Chip
+  //                   icon={<HomeIcon fontSize="small" />}
+  //                   label="Home"
+  //                   size="small"
+  //                   sx={{ ml: 1 }}
+  //                 />
+  //               )}
+  //             </Box>
+  //           </Box>
+  //           <Box
+  //             sx={{ ...mobileCellStyles, justifyContent: "flex-end", gap: 1 }}
+  //           >
+  //             <IconButton
+  //               size="small"
+  //               onClick={() => onEdit(category._id)}
+  //               sx={actionButtonStyles}
+  //               color="secondary"
+  //             >
+  //               <EditIcon fontSize="small" />
+  //             </IconButton>
+  //             <IconButton
+  //               size="small"
+  //               onClick={() => handleDeleteClick(category._id)}
+  //               sx={{ ...actionButtonStyles, color: "error.main" }}
+  //             >
+  //               <DeleteIcon fontSize="small" />
+  //             </IconButton>
+  //           </Box>
+  //         </Box>
+  //       ))}
+  //       <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+  //         <Pagination
+  //           count={Math.ceil(categories.length / rowsPerPage)}
+  //           page={page}
+  //           onChange={handleChangePage}
+  //           sx={paginationStyles}
+  //         />
+  //       </Box>
 
-        <Dialog
-          open={deleteConfirmOpen}
-          onClose={() => setDeleteConfirmOpen(false)}
-        >
-          <DialogTitle>Confirm Delete</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              Are you sure you want to delete this category? This action cannot be
-              undone.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={() => setDeleteConfirmOpen(false)}>Cancel</Button>
-            <Button
-              onClick={handleConfirmDelete}
-              color="error"
-              variant="contained"
-            >
-              Delete
-            </Button>
-          </DialogActions>
-        </Dialog>
+  //       <Dialog
+  //         open={deleteConfirmOpen}
+  //         onClose={() => setDeleteConfirmOpen(false)}
+  //       >
+  //         <DialogTitle>Confirm Delete</DialogTitle>
+  //         <DialogContent>
+  //           <DialogContentText>
+  //             Are you sure you want to delete this category? This action cannot be
+  //             undone.
+  //           </DialogContentText>
+  //         </DialogContent>
+  //         <DialogActions>
+  //           <Button onClick={() => setDeleteConfirmOpen(false)}>Cancel</Button>
+  //           <Button
+  //             onClick={handleConfirmDelete}
+  //             color="error"
+  //             variant="contained"
+  //           >
+  //             Delete
+  //           </Button>
+  //         </DialogActions>
+  //       </Dialog>
 
-        <Dialog
-          open={imagePreviewOpen}
-          onClose={() => setImagePreviewOpen(false)}
-          maxWidth="md"
-          fullWidth
-        >
-          <DialogContent>
-            <img
-              src={previewImage}
-              alt="Preview"
-              style={{ width: "100%", height: "auto" }}
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={() => setImagePreviewOpen(false)}>Close</Button>
-          </DialogActions>
-        </Dialog>
-      </Box>
-    );
-  }
+  //       <Dialog
+  //         open={imagePreviewOpen}
+  //         onClose={() => setImagePreviewOpen(false)}
+  //         maxWidth="md"
+  //         fullWidth
+  //       >
+  //         <DialogContent>
+  //           <img
+  //             src={previewImage}
+  //             alt="Preview"
+  //             style={{ width: "100%", height: "auto" }}
+  //           />
+  //         </DialogContent>
+  //         <DialogActions>
+  //           <Button onClick={() => setImagePreviewOpen(false)}>Close</Button>
+  //         </DialogActions>
+  //       </Dialog>
+  //     </Box>
+  //   );
+  // }
 
   return (
     <>
@@ -292,7 +292,12 @@ const CategoryTable = ({ categories, onEdit }) => {
         </Box>
       </TableContainer>
 
-      <Dialog
+
+
+
+
+
+      {/* <Dialog
         open={deleteConfirmOpen}
         onClose={() => setDeleteConfirmOpen(false)}
       >
@@ -313,9 +318,9 @@ const CategoryTable = ({ categories, onEdit }) => {
             Delete
           </Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
 
-      <Dialog
+      {/* <Dialog
         open={imagePreviewOpen}
         onClose={() => setImagePreviewOpen(false)}
         maxWidth="md"
@@ -329,9 +334,15 @@ const CategoryTable = ({ categories, onEdit }) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setImagePreviewOpen(false)}>Close</Button>
+          <Button
+           onClick={() => setImagePreviewOpen(false)
+
+            
+           }
+           
+           >Close</Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
     </>
   );
 };

@@ -1,7 +1,11 @@
 // slice/packageSlice.js
+
+
+
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 
 // Fetch single package by ID
 export const fetchPackageById = createAsyncThunk(
@@ -37,22 +41,6 @@ export const fetchPackages = createAsyncThunk(
   }
 );
 
-// // Fetch all packages (agent)
-// export const fetchAgentPackages = createAsyncThunk(
-//   "packages/fetchAgentPackages",
-//   async () => {
-//     try {
-//       const response = await fetch(`${process.env.API}/agent/packages`);
-//       if (!response.ok) {
-//         throw new Error(`Failed to fetch agent packages: ${response.status}`);
-//       }
-//       return await response.json();
-//     } catch (error) {
-//       toast.error(`Error loading agent packages: ${error.message}`);
-//       throw error;
-//     }
-//   }
-// );
 
 // Fetch packages for home / public listing
 export const fetchHomePackages = createAsyncThunk(
@@ -155,6 +143,15 @@ export const fetchCheckOutPackageById = createAsyncThunk(
     }
   }
 );
+
+
+
+
+
+
+
+
+
 
 const packageSlice = createSlice({
   name: "packages",

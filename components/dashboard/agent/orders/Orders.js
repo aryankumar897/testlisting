@@ -33,7 +33,9 @@ const OrderList = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
+        
         const response = await fetch(`${process.env.API}/agent/orders`);
+     
         if (!response.ok) {
           throw new Error("Failed to fetch orders");
         }
